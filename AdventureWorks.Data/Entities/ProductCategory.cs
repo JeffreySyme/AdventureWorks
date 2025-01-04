@@ -9,7 +9,8 @@ public class ProductCategory
     public ProductCategory ParentProductCategory { get; set; }
     public string Name { get; set; }
     public DateTime ModifiedDate { get; set; }
-    public ICollection<ProductCategory> ChildCategories { get; set; }
+    public ICollection<Product> Products { get; set; } = [];
+    public ICollection<ProductCategory> ChildCategories { get; set; } = [];
 }
 internal class ProductCategoriesConfiguration : IEntityTypeConfiguration<ProductCategory>
 {
