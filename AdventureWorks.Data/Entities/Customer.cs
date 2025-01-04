@@ -18,6 +18,7 @@ public class Customer
     public string PasswordHash { get; set; }
     public string PasswordSalt { get; set; }
     public DateTime ModifiedDate { get; set; }
+    public ICollection<CustomerAddress> CustomerAddresses { get; set; } = [];
 }
 internal class CustomerConfiguration : IEntityTypeConfiguration<Customer>
 {

@@ -12,6 +12,7 @@ public class Address
     public string CountryRegion { get; set; }
     public string PostalCode { get; set; }
     public DateTime ModifiedDate { get; set; }
+    public ICollection<CustomerAddress> CustomerAddresses { get; set; } = [];
 }
 internal class AddressConfiguration : IEntityTypeConfiguration<Address>
 {
