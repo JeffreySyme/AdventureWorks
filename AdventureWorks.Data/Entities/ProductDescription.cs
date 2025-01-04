@@ -7,6 +7,7 @@ public class ProductDescription
     public int ProductDescriptionId { get; set; }
     public string Description { get; set; }
     public DateTime ModifiedDate { get; set; }
+    public ICollection<ProductModelProductDescription> ProductModelProductDescriptions { get; set; } = [];
 }
 internal class ProductDescriptionConfiguration : IEntityTypeConfiguration<ProductDescription>
 {
