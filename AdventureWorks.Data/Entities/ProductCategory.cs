@@ -18,6 +18,7 @@ internal class ProductCategoriesConfiguration : IEntityTypeConfiguration<Product
         builder.ToTable("ProductCategory", "SalesLT");
         builder.HasKey(x => x.ProductCategoryId);
         builder.Property(x => x.ProductCategoryId).HasColumnName("ProductCategoryID");
+        builder.Property(x => x.ParentProductCategoryId).HasColumnName("ParentProductCategoryID");
         builder.Property(x => x.Name);
         builder.Property(x => x.ModifiedDate);
 
