@@ -6,9 +6,11 @@ public class AdventureWorksDbContext(DbContextOptions<AdventureWorksDbContext> o
 {
     public DbSet<ProductCategory> ProductCategories { get; set; }
     public DbSet<ProductDescription> ProductDescriptions { get; set; }
+    public DbSet<ProductModel> ProductModels { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new ProductCategoriesConfiguration());
         modelBuilder.ApplyConfiguration(new ProductDescriptionConfiguration());
+        modelBuilder.ApplyConfiguration(new ProductModelConfiguration());
     }
 }
