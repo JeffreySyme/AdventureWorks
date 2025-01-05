@@ -10,8 +10,6 @@ public partial interface IAdventureWorksServices
     Task<ProductCategoryModel?> FindProductCategory(int productCategoryId);
     IQueryable<ProductCategoryModel> QueryProductCategories();
 }
-
-[ExcludeFromCodeCoverage]
 internal partial class AdventureWorksServices(IServiceProvider serviceProvider) : IAdventureWorksServices
 {
     public Task<ProductCategoryModel?> FindProductCategory(int productCategoryId) 
