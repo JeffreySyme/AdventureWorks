@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AdventureWorks.Data.Entities;
+
+[ExcludeFromCodeCoverage]
 public class ProductDescription
 {
     public int ProductDescriptionId { get; set; }
@@ -9,6 +12,8 @@ public class ProductDescription
     public DateTime ModifiedDate { get; set; }
     public ICollection<ProductModelProductDescription> ProductModelProductDescriptions { get; set; } = [];
 }
+
+[ExcludeFromCodeCoverage]
 internal class ProductDescriptionConfiguration : IEntityTypeConfiguration<ProductDescription>
 {
     public void Configure(EntityTypeBuilder<ProductDescription> builder)

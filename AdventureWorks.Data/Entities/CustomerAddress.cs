@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AdventureWorks.Data.Entities;
+
+[ExcludeFromCodeCoverage]
 public class CustomerAddress
 {
     public int CustomerId { get; set; }
@@ -11,6 +14,8 @@ public class CustomerAddress
     public string AddressType { get; set; }
     public DateTime ModifiedDate { get; set; }
 }
+
+[ExcludeFromCodeCoverage]
 internal class CustomerAddressConfiguration : IEntityTypeConfiguration<CustomerAddress>
 {
     public void Configure(EntityTypeBuilder<CustomerAddress> builder)

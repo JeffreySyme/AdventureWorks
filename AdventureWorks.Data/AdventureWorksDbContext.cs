@@ -1,7 +1,10 @@
 ﻿using AdventureWorks.Data.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AdventureWorks.Data;
+
+[ExcludeFromCodeCoverage]
 public class AdventureWorksDbContext(DbContextOptions<AdventureWorksDbContext> options) : DbContext(options)
 {
     public DbSet<Address> Addresses { get; set; }

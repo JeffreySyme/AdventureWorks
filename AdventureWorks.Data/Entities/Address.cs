@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AdventureWorks.Data.Entities;
+
+[ExcludeFromCodeCoverage]
 public class Address
 {
     public int AddressId { get; set; }
@@ -16,6 +19,8 @@ public class Address
     public ICollection<SalesOrderHeader> ShipToSalesOrderHeaders { get; set; } = [];
     public ICollection<SalesOrderHeader> BillToSalesOrderHeaders { get; set; } = [];
 }
+
+[ExcludeFromCodeCoverage]
 internal class AddressConfiguration : IEntityTypeConfiguration<Address>
 {
     public void Configure(EntityTypeBuilder<Address> builder)

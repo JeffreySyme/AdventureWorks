@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AdventureWorks.Data.Entities;
+
+[ExcludeFromCodeCoverage]
 public class ProductCategory
 {
     public int ProductCategoryId { get; set; }
@@ -12,6 +15,8 @@ public class ProductCategory
     public ICollection<Product> Products { get; set; } = [];
     public ICollection<ProductCategory> ChildCategories { get; set; } = [];
 }
+
+[ExcludeFromCodeCoverage]
 internal class ProductCategoriesConfiguration : IEntityTypeConfiguration<ProductCategory>
 {
     public void Configure(EntityTypeBuilder<ProductCategory> builder)

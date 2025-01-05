@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AdventureWorks.Data.Entities;
+
+[ExcludeFromCodeCoverage]
 public class Customer
 {
     public int CustomerId { get; set; }
@@ -21,6 +24,8 @@ public class Customer
     public ICollection<CustomerAddress> CustomerAddresses { get; set; } = [];
     public ICollection<SalesOrderHeader> SalesOrderHeaders { get; set; } = [];
 }
+
+[ExcludeFromCodeCoverage]
 internal class CustomerConfiguration : IEntityTypeConfiguration<Customer>
 {
     public void Configure(EntityTypeBuilder<Customer> builder)

@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AdventureWorks.Data.Entities;
+
+[ExcludeFromCodeCoverage]
 public class Product
 {
     public int ProductId { get; set; }
@@ -23,6 +26,8 @@ public class Product
     public string ThumbnailPhotoFileName { get; set; }
     public DateTime ModifiedDate { get; set; }
 }
+
+[ExcludeFromCodeCoverage]
 internal class ProductConfiguration : IEntityTypeConfiguration<Product>
 {
     public void Configure(EntityTypeBuilder<Product> builder)
