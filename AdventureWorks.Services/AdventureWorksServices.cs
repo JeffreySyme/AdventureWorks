@@ -4,6 +4,6 @@ namespace AdventureWorks.Services;
 public partial interface IAdventureWorksServices { }
 
 [ExcludeFromCodeCoverage]
-internal partial class AdventureWorksServices : IAdventureWorksServices
+internal partial class AdventureWorksServices(IServiceProvider serviceProvider) : IAdventureWorksServices
 {
 }
