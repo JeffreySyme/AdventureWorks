@@ -6,18 +6,18 @@ namespace AdventureWorks.Services;
 
 public partial interface IAdventureWorksServices 
 {
-    Task<ProductCategoryModel?> FindProductCategoryAsync(int productCategoryId);
-    IQueryable<ProductCategoryModel> QueryProductCategories();
+    Task<CustomerModel?> FindCustomerAsync(int productCategoryId);
+    IQueryable<CustomerModel> QueryCustomers();
 }
 internal partial class AdventureWorksServices : IAdventureWorksServices
 {
-    public Task<ProductCategoryModel?> FindProductCategoryAsync(int productCategoryId) 
+    public Task<ProductCategoryModel?> FindCustomerAsync(int productCategoryId) 
     {
         return serviceProvider
             .GetRequiredService<FindProductCategory>()
             .ExecuteAsync(productCategoryId);
     }
-    public IQueryable<ProductCategoryModel> QueryProductCategories() 
+    public IQueryable<ProductCategoryModel> QueryCustomers() 
     {
         return serviceProvider
             .GetRequiredService<QueryProductCategories>()
