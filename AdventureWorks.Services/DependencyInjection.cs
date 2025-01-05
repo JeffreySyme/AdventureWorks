@@ -1,4 +1,5 @@
 ﻿using AdventureWorks.Data;
+using AdventureWorks.Services.ProductCategories;
 using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics.CodeAnalysis;
 
@@ -9,7 +10,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddAdventureWorksServices(this IServiceCollection services, Action<AdventureWorksServicesConfiguration> configAction) 
     {
-
+        services.AddProductCategories();
 
         configAction.Invoke(new AdventureWorksServicesConfiguration(services));
 
