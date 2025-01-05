@@ -13,6 +13,8 @@ public class Address
     public string PostalCode { get; set; }
     public DateTime ModifiedDate { get; set; }
     public ICollection<CustomerAddress> CustomerAddresses { get; set; } = [];
+    public ICollection<SalesOrderHeader> ShipToSalesOrderHeaders { get; set; } = [];
+    public ICollection<SalesOrderHeader> BillToSalesOrderHeaders { get; set; } = [];
 }
 internal class AddressConfiguration : IEntityTypeConfiguration<Address>
 {
