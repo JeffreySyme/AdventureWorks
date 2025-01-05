@@ -31,6 +31,7 @@ public class SalesOrderHeader
     public decimal TotalDue { get; set; }
     public string Comment { get; set; }
     public DateTime ModifiedDate { get; set; }
+    public ICollection<SalesOrderDetail> SalesOrderDetails { get; set; } = [];
 }
 
 [ExcludeFromCodeCoverage]

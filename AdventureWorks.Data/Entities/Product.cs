@@ -25,6 +25,7 @@ public class Product
     public byte[] ThumbnailPhoto { get; set; }
     public string ThumbnailPhotoFileName { get; set; }
     public DateTime ModifiedDate { get; set; }
+    public ICollection<SalesOrderDetail> SalesOrderDetails { get; set; } = [];
 }
 
 [ExcludeFromCodeCoverage]

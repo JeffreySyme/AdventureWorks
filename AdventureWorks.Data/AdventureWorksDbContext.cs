@@ -15,6 +15,8 @@ public class AdventureWorksDbContext(DbContextOptions<AdventureWorksDbContext> o
     public DbSet<ProductDescription> ProductDescriptions { get; set; }
     public DbSet<ProductModel> ProductModels { get; set; }
     public DbSet<ProductModelProductDescription> ProductModelProductDescriptions { get; set; }
+    public DbSet<SalesOrderDetail> SalesOrderDetails { get; set; }
+    public DbSet<SalesOrderHeader> SalesOrderHeaders { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -26,5 +28,7 @@ public class AdventureWorksDbContext(DbContextOptions<AdventureWorksDbContext> o
         modelBuilder.ApplyConfiguration(new ProductDescriptionConfiguration());
         modelBuilder.ApplyConfiguration(new ProductModelConfiguration());
         modelBuilder.ApplyConfiguration(new ProductModelProductDescriptionConfiguration());
+        modelBuilder.ApplyConfiguration(new SalesOrderDetailConfiguration());
+        modelBuilder.ApplyConfiguration(new SalesOrderHeaderConfiguration());
     }
 }
