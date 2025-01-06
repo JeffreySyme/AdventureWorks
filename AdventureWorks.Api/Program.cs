@@ -1,4 +1,5 @@
 using AdventureWorks.Services.DependencyInjection;
+using AdventureWorks.Api.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,13 +8,17 @@ var configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
     .Build();
 
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddAdventureWorksServices(config => 
+builder.Services.AddAdventureWorksServices(config =>
 {
     config.AddAdventureWorksDb(configuration.GetConnectionString("AdventureWorksDatabase"));
 });
+
+builder.Services
+    .AddControllers()
+    .AddOData();
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
