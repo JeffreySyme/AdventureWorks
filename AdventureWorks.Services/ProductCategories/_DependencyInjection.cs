@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using AdventureWorks.Models;
+using FluentValidation;
+using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics.CodeAnalysis;
 
 namespace AdventureWorks.Services.ProductCategories;
@@ -12,6 +14,8 @@ internal static class DependencyInjection
         services.AddScoped<FindProductCategory>();
         services.AddScoped<QueryProductCategories>();
         services.AddScoped<UpdateProductCategory>();
+
+        services.AddScoped<IValidator<ProductCategoryModel>, Validator>();
 
         return services;
     }
