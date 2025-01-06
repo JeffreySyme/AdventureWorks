@@ -14,6 +14,9 @@ public static class DependencyInjection
         services.AddCustomers();
         services.AddProductCategories();
 
+        services.AddScoped<IAdventureWorksServices, AdventureWorksServices>();
+        services.AddScoped<IAdventureWorksValidator, AdventureWorksValidator>();
+
         configAction.Invoke(new AdventureWorksServicesConfiguration(services));
 
         return services;
