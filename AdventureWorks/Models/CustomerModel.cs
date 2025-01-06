@@ -1,7 +1,10 @@
-﻿namespace AdventureWorks.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AdventureWorks.Models;
 
 public class CustomerModel
 {
+    [Key]
     public int CustomerId { get; set; }
     public bool NameStyle { get; set; }
     public string Title { get; set; }
