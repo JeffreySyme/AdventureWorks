@@ -11,6 +11,7 @@ internal static class ODataConfiguration
 
         odataBuilder.EntitySet<CustomerModel>("Customers");
         odataBuilder.EntitySet<ProductCategoryModel>("ProductCategories");
+        odataBuilder.EntitySet<ProductModel>("Products");
 
         odataBuilder.EnableLowerCamelCase();
 
