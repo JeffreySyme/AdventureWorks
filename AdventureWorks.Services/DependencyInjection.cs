@@ -1,6 +1,7 @@
 ﻿using AdventureWorks.Data;
 using AdventureWorks.Services.Customers;
 using AdventureWorks.Services.ProductCategories;
+using AdventureWorks.Services.ProductModels;
 using AdventureWorks.Services.Products;
 using AdventureWorks.Services.SalesOrders;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +16,7 @@ public static class DependencyInjection
     {
         services.AddCustomers();
         services.AddProductCategories();
+        services.AddProductModels();
         services.AddProducts();
         services.AddSalesOrders();
 
