@@ -50,6 +50,15 @@ internal static class Mapping
             TotalDue = e.TotalDue,
             Comment = e.Comment,
             ModifiedDate = e.ModifiedDate,
+            SalesOrderDetails = e.SalesOrderDetails.Select(sod => new SalesOrderDetailModel 
+            {
+                OrderQty = sod.OrderQty,
+                ProductId = sod.ProductId,
+                UnitPrice = sod.UnitPrice,
+                UnitPriceDiscount = sod.UnitPriceDiscount,
+                LineTotal = sod.LineTotal,
+                ModifiedDate = sod.ModifiedDate,
+            }),
         });
     }
 }

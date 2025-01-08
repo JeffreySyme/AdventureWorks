@@ -17,4 +17,5 @@ public class CustomerModel
     public string EmailAddress { get; set; }
     public string Phone { get; set; }
     public DateTime ModifiedDate { get; set; }
+    public IEnumerable<CustomerAddressModel> Addresses { get; set; } = [];
 }

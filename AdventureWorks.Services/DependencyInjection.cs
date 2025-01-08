@@ -2,6 +2,7 @@
 using AdventureWorks.Services.Customers;
 using AdventureWorks.Services.ProductCategories;
 using AdventureWorks.Services.Products;
+using AdventureWorks.Services.SalesOrders;
 using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics.CodeAnalysis;
 
@@ -15,6 +16,7 @@ public static class DependencyInjection
         services.AddCustomers();
         services.AddProductCategories();
         services.AddProducts();
+        services.AddSalesOrders();
 
         services.AddScoped<IAdventureWorksServices, AdventureWorksServices>();
         services.AddScoped<IAdventureWorksValidator, AdventureWorksValidator>();
