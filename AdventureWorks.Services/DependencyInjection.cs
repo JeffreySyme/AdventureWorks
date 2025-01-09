@@ -7,7 +7,7 @@ using AdventureWorks.Services.SalesOrders;
 using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics.CodeAnalysis;
 
-namespace AdventureWorks.Services.DependencyInjection;
+namespace AdventureWorks.Services;
 
 [ExcludeFromCodeCoverage]
 public static class DependencyInjection
