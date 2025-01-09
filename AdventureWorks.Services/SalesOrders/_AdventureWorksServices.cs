@@ -3,7 +3,7 @@ using AdventureWorks.Services.SalesOrders;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AdventureWorks.Services;
-internal partial interface IAdventureWorksServices 
+public partial interface IAdventureWorksServices 
 {
     Task<SalesOrderModel?> FindSalesOrderAsync(int salesOrderId);
     IQueryable<SalesOrderModel> QuerySalesOrders();
