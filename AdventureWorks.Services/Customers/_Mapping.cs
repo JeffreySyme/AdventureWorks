@@ -20,6 +20,16 @@ internal static class Mapping
             EmailAddress = e.EmailAddress,
             Phone = e.Phone,
             ModifiedDate = e.ModifiedDate,
+            Addresses = e.CustomerAddresses.Select(ca => new CustomerAddressModel 
+            {
+                AddressType = ca.AddressType,
+                AddressLine1 = ca.Address.AddressLine1,
+                AddressLine2 = ca.Address.AddressLine2,
+                City = ca.Address.City,
+                StateProvince = ca.Address.StateProvince,
+                CountryRegion = ca.Address.CountryRegion,
+                PostalCode = ca.Address.PostalCode,
+            })
         });
     }
 
@@ -37,5 +47,41 @@ internal static class Mapping
         model.EmailAddress = entity.EmailAddress;
         model.Phone = entity.Phone;
         model.ModifiedDate = DateTime.Now;
+
+        var customerAddressModelQueue = new Queue<CustomerAddressModel>(model.Addresses);
+
+        foreach (var addressEntity in entity.CustomerAddresses) 
+        {
+            var customerAddressModel = customerAddressModelQueue.Dequeue();
+
+            if (customerAddressModel == null)
+                break;
+
+            addressEntity.AddressType = customerAddressModel.AddressType;
+            addressEntity.Address.AddressLine1 = customerAddressModel.AddressLine1;
+            addressEntity.Address.AddressLine2 = customerAddressModel.AddressLine2;
+            addressEntity.Address.City = customerAddressModel.City;
+            addressEntity.Address.StateProvince = customerAddressModel.StateProvince;
+            addressEntity.Address.CountryRegion = customerAddressModel.CountryRegion;
+            addressEntity.ModifiedDate = DateTime.Now;
+        }
+
+        foreach (var customerAddressModel in customerAddressModelQueue) 
+        {
+            entity.CustomerAddresses.Add(new CustomerAddress
+            {
+                AddressType = customerAddressModel.AddressType,
+                Address = new Address 
+                {
+                    AddressLine1 = customerAddressModel.AddressLine1,
+                    AddressLine2 = customerAddressModel.AddressLine2,
+                    City = customerAddressModel.City,
+                    StateProvince = customerAddressModel.StateProvince,
+                    CountryRegion = customerAddressModel.CountryRegion,
+                    PostalCode = customerAddressModel.PostalCode,
+                    ModifiedDate = DateTime.Now,
+                }
+            });
+        }
     }
 }

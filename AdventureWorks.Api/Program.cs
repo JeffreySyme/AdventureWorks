@@ -1,4 +1,4 @@
-using AdventureWorks.Services.DependencyInjection;
+using AdventureWorks.Services;
 using AdventureWorks.Api.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);

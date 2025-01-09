@@ -26,4 +26,5 @@ public class SalesOrderModel
     public decimal TotalDue { get; set; }
     public string Comment { get; set; }
     public DateTime ModifiedDate { get; set; }
+    public IEnumerable<SalesOrderDetailModel> SalesOrderDetails { get; set; } = [];
 }
