@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks", "AdventureWorks\AdventureWorks.csproj", "{52E0F562-B894-41F3-B99A-2746CE387EAE}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Services", "AdventureWorks.Services\AdventureWorks.Services.csproj", "{1910B57A-87DD-4F00-AAD1-978D308C4019}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Api", "AdventureWorks.Api\AdventureWorks.Api.csproj", "{1C658E74-8C5A-44D7-A0A4-00887B18CA69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Tests", "AdventureWorks.Tests\AdventureWorks.Tests.csproj", "{4A2E2EAC-552F-4E26-9DEB-61C2535D2EAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{1C658E74-8C5A-44D7-A0A4-00887B18CA69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C658E74-8C5A-44D7-A0A4-00887B18CA69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C658E74-8C5A-44D7-A0A4-00887B18CA69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A2E2EAC-552F-4E26-9DEB-61C2535D2EAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A2E2EAC-552F-4E26-9DEB-61C2535D2EAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A2E2EAC-552F-4E26-9DEB-61C2535D2EAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A2E2EAC-552F-4E26-9DEB-61C2535D2EAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
