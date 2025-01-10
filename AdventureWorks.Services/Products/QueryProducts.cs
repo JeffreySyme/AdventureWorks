@@ -2,8 +2,8 @@
 using AdventureWorks.Models;
 
 namespace AdventureWorks.Services.Products;
-
-internal class QueryProducts(AdventureWorksDbContext db) : IQuery<ProductModel>
+internal interface IQueryProducts : IQuery<ProductModel> { }
+internal class QueryProducts(AdventureWorksDbContext db) : IQueryProducts
 {
     public IQueryable<ProductModel> Execute()
     {

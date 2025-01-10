@@ -3,7 +3,8 @@ using AdventureWorks.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace AdventureWorks.Services.Customers;
-internal class FindCustomer(AdventureWorksDbContext db) : ICommand<int, CustomerModel?>
+internal interface IFindCustomer : ICommand<int, CustomerModel?> { }
+internal class FindCustomer(AdventureWorksDbContext db) : IFindCustomer
 {
     public Task<CustomerModel?> ExecuteAsync(int customerId)
     {

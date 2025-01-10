@@ -1,10 +1,12 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AdventureWorks.Models;
 
 [ExcludeFromCodeCoverage]
 public class SalesOrderModel
 {
+    [Key]
     public int SalesOrderId { get; set; }
     public byte RevisionNumber { get; set; }
     public DateTime OrderDate { get; set; }

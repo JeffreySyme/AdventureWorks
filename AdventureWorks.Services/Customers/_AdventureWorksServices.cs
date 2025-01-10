@@ -1,6 +1,5 @@
 ﻿using AdventureWorks.Models;
 using AdventureWorks.Services.Customers;
-using AdventureWorks.Services.ProductCategories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AdventureWorks.Services;
@@ -15,13 +14,13 @@ internal partial class AdventureWorksServices : IAdventureWorksServices
     public Task<CustomerModel?> FindCustomerAsync(int productCategoryId) 
     {
         return serviceProvider
-            .GetRequiredService<FindCustomer>()
+            .GetRequiredService<IFindCustomer>()
             .ExecuteAsync(productCategoryId);
     }
     public IQueryable<CustomerModel> QueryCustomers() 
     {
         return serviceProvider
-            .GetRequiredService<QueryCustomers>()
+            .GetRequiredService<IQueryCustomers>()
             .Execute();
     }
 }

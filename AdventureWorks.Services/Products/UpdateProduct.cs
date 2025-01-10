@@ -3,7 +3,8 @@ using AdventureWorks.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace AdventureWorks.Services.Products;
-internal class UpdateProduct(AdventureWorksDbContext db) : ICommand<ProductModel, ProductModel>
+internal interface IUpdateProduct : ICommand<ProductModel, ProductModel> { }
+internal class UpdateProduct(AdventureWorksDbContext db) : IUpdateProduct
 {
     public async Task<ProductModel> ExecuteAsync(ProductModel model)
     {

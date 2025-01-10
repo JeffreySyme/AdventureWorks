@@ -5,7 +5,8 @@ using AdventureWorks.Services.Products;
 using Microsoft.EntityFrameworkCore;
 
 namespace AdventureWorks.Services.Functions;
-internal class GetProducts(AdventureWorksDbContext db) : ICommand<GetProductsParams, GetProductsResult>
+internal interface IGetProducts : ICommand<GetProductsParams, GetProductsResult> { }
+internal class GetProducts(AdventureWorksDbContext db) : IGetProducts
 {
     public async Task<GetProductsResult> ExecuteAsync(GetProductsParams parameters)
     {

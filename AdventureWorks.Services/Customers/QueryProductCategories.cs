@@ -2,7 +2,8 @@
 using AdventureWorks.Models;
 
 namespace AdventureWorks.Services.Customers;
-internal class QueryCustomers(AdventureWorksDbContext db) : IQuery<CustomerModel>
+internal interface IQueryCustomers : IQuery<CustomerModel> { }
+internal class QueryCustomers(AdventureWorksDbContext db) : IQueryCustomers
 {
     public IQueryable<CustomerModel> Execute()
     {

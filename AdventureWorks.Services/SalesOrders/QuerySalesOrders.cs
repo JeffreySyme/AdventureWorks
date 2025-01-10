@@ -2,7 +2,8 @@
 using AdventureWorks.Models;
 
 namespace AdventureWorks.Services.SalesOrders;
-internal class QuerySalesOrders(AdventureWorksDbContext db) : IQuery<SalesOrderModel>
+internal interface IQuerySalesOrders : IQuery<SalesOrderModel> { }
+internal class QuerySalesOrders(AdventureWorksDbContext db) : IQuerySalesOrders
 {
     public IQueryable<SalesOrderModel> Execute()
     {

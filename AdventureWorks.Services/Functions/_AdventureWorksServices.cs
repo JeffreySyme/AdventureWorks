@@ -12,7 +12,7 @@ internal partial class AdventureWorksServices : IAdventureWorksServices
     public Task<GetProductsResult> GetProductsAsync(GetProductsParams parameters) 
     {
         return serviceProvider
-            .GetRequiredService<GetProducts>()
+            .GetRequiredService<IGetProducts>()
             .ExecuteAsync(parameters);
     }
 }

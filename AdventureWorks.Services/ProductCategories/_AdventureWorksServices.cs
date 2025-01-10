@@ -17,28 +17,28 @@ internal partial class AdventureWorksServices : IAdventureWorksServices
     public Task<ProductCategoryModel> CreateProductCategoryAsync(ProductCategoryModel model) 
     {
         return serviceProvider
-            .GetRequiredService<CreateProductCategory>()
+            .GetRequiredService<ICreateProductCategory>()
             .ExecuteAsync(model);
     }
 
     public Task<ProductCategoryModel?> FindProductCategoryAsync(int productCategoryId) 
     {
         return serviceProvider
-            .GetRequiredService<FindProductCategory>()
+            .GetRequiredService<IFindProductCategory>()
             .ExecuteAsync(productCategoryId);
     }
 
     public IQueryable<ProductCategoryModel> QueryProductCategories() 
     {
         return serviceProvider
-            .GetRequiredService<QueryProductCategories>()
+            .GetRequiredService<IQueryProductCategories>()
             .Execute();
     }
 
     public Task<ProductCategoryModel> UpdateProductCategoryAsync(ProductCategoryModel model) 
     {
         return serviceProvider
-            .GetRequiredService<UpdateProductCategory>()
+            .GetRequiredService<IUpdateProductCategory>()
             .ExecuteAsync(model);
     }
 }
