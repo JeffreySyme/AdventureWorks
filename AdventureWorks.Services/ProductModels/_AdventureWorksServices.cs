@@ -13,13 +13,13 @@ internal partial class AdventureWorksServices : IAdventureWorksServices
     public Task<ProductModelModel?> FindProductModelAsync(int productModelId) 
     {
         return serviceProvider
-            .GetRequiredService<FindProductModel>()
+            .GetRequiredService<IFindProductModel>()
             .ExecuteAsync(productModelId);
     }
     public IQueryable<ProductModelModel> QueryProductModels() 
     {
         return serviceProvider
-            .GetRequiredService<QueryProductModels>()
+            .GetRequiredService<IQueryProductModels>()
             .Execute();
     }
 }

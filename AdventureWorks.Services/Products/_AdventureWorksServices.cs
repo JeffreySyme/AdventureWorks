@@ -15,25 +15,25 @@ internal partial class AdventureWorksServices : IAdventureWorksServices
     public Task<ProductModel> CreateProductAsync(ProductModel model) 
     {
         return serviceProvider
-            .GetRequiredService<CreateProduct>()
+            .GetRequiredService<ICreateProduct>()
             .ExecuteAsync(model);
     }
     public Task<ProductModel?> FindProductAsync(int productId) 
     {
         return serviceProvider
-            .GetRequiredService<FindProduct>()
+            .GetRequiredService<IFindProduct>()
             .ExecuteAsync(productId);
     }
     public IQueryable<ProductModel> QueryProducts() 
     {
         return serviceProvider
-            .GetRequiredService<QueryProducts>()
+            .GetRequiredService<IQueryProducts>()
             .Execute();
     }
     public Task<ProductModel> UpdateProductAsync(ProductModel model) 
     {
         return serviceProvider
-            .GetRequiredService<UpdateProduct>()
+            .GetRequiredService<IUpdateProduct>()
             .ExecuteAsync(model);
     }
 }

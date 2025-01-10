@@ -8,8 +8,8 @@ internal static class DependencyInjection
 {
     public static IServiceCollection AddSalesOrders(this IServiceCollection services) 
     {
-        services.AddScoped<FindSalesOrder>();
-        services.AddScoped<QuerySalesOrders>();
+        services.AddScoped<IFindSalesOrder, FindSalesOrder>();
+        services.AddScoped<IQuerySalesOrders, QuerySalesOrders>();
 
         return services;
     }

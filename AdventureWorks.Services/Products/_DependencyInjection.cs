@@ -10,10 +10,10 @@ internal static class DependencyInjection
 {
     public static IServiceCollection AddProducts(this IServiceCollection services) 
     {
-        services.AddScoped<CreateProduct>();
-        services.AddScoped<FindProduct>();
-        services.AddScoped<QueryProducts>();
-        services.AddScoped<UpdateProduct>();
+        services.AddScoped<ICreateProduct, CreateProduct>();
+        services.AddScoped<IFindProduct, FindProduct>();
+        services.AddScoped<IQueryProducts, QueryProducts>();
+        services.AddScoped<IUpdateProduct, UpdateProduct>();
 
         services.AddScoped<IValidator<ProductModel>, Validator>();
 
