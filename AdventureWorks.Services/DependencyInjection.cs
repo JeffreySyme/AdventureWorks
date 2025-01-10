@@ -1,5 +1,6 @@
 ﻿using AdventureWorks.Data;
 using AdventureWorks.Services.Customers;
+using AdventureWorks.Services.Functions;
 using AdventureWorks.Services.ProductCategories;
 using AdventureWorks.Services.ProductModels;
 using AdventureWorks.Services.Products;
@@ -15,6 +16,7 @@ public static class DependencyInjection
     public static IServiceCollection AddAdventureWorksServices(this IServiceCollection services, Action<AdventureWorksServicesConfiguration> configAction) 
     {
         services.AddCustomers();
+        services.AddFunctions();
         services.AddProductCategories();
         services.AddProductModels();
         services.AddProducts();
