@@ -13,13 +13,17 @@ public class ProductCategoriesController(IAdventureWorksCommandProvider commandP
     [EnableQuery]
     public IActionResult Get() 
     {
-        return Ok(commandProvider.Get<IQueryProductCategories>().Execute());
+        return Ok(commandProvider
+            .Get<IQueryProductCategories>()
+            .Execute());
     }
 
     [EnableQuery]
     public async Task<IActionResult> Get([FromRoute] int key) 
     {
-        var result = await commandProvider.Get<IFindProductCategory>().ExecuteAsync(key);
+        var result = await commandProvider
+            .Get<IFindProductCategory>()
+            .ExecuteAsync(key);
 
         if (result == null)
             return NotFound();

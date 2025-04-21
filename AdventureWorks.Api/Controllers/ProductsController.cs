@@ -13,7 +13,9 @@ public class ProductsController(IAdventureWorksCommandProvider commandProvider, 
     [EnableQuery]
     public IActionResult Get() 
     {
-        return Ok(commandProvider.Get<IQueryProducts>().Execute());
+        return Ok(commandProvider
+            .Get<IQueryProducts>()
+            .Execute());
     }
 
     [EnableQuery]
