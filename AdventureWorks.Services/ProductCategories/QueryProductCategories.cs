@@ -2,7 +2,7 @@
 using AdventureWorks.Models;
 
 namespace AdventureWorks.Services.ProductCategories;
-internal interface IQueryProductCategories : IQuery<ProductCategoryModel> { }
+public interface IQueryProductCategories : IQuery<ProductCategoryModel> { }
 internal class QueryProductCategories(AdventureWorksDbContext db) : IQueryProductCategories
 {
     public IQueryable<ProductCategoryModel> Execute()

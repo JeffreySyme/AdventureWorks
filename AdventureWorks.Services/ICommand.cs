@@ -1,5 +1,11 @@
 ﻿namespace AdventureWorks.Services;
-internal interface ICommand<TParams, TResult>
+
+public interface ICommand { }
+public interface ICommand<TParam, TResult> : ICommand
 {
-    Task<TResult> ExecuteAsync(TParams parameters);
+    Task<TResult> ExecuteAsync(TParam parameters);
+}
+public interface IQuery<TResult> : ICommand
+{
+    IQueryable<TResult> Execute();
 }

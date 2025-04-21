@@ -1,5 +1,6 @@
 ﻿using AdventureWorks.Models;
 using AdventureWorks.Services;
+using AdventureWorks.Services.Products;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
@@ -7,18 +8,22 @@ using Microsoft.AspNetCore.OData.Routing.Controllers;
 
 namespace AdventureWorks.Api.Controllers;
 
-public class ProductsController(IAdventureWorksServices services, IAdventureWorksValidator validator) : ODataController
+public class ProductsController(IAdventureWorksCommandProvider commandProvider, IAdventureWorksValidator validator) : ODataController
 {
     [EnableQuery]
     public IActionResult Get() 
     {
-        return Ok(services.QueryProducts());
+        return Ok(commandProvider
+            .Get<IQueryProducts>()
+            .Execute());
     }
 
     [EnableQuery]
     public async Task<IActionResult> Get([FromRoute] int key) 
     {
-        var product = await services.FindProductAsync(key);
+        var product = await commandProvider
+            .Get<IFindProduct>()
+            .ExecuteAsync(key);
 
         if (product == null)
             return NotFound();
@@ -36,7 +41,9 @@ public class ProductsController(IAdventureWorksServices services, IAdventureWork
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        return Created(await services.CreateProductAsync(model));
+        return Created(await commandProvider
+            .Get<ICreateProduct>()
+            .ExecuteAsync(model));
     }
 
     [HttpPut]
@@ -51,6 +58,8 @@ public class ProductsController(IAdventureWorksServices services, IAdventureWork
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        return Updated(await services.UpdateProductAsync(model));
+        return Updated(await commandProvider
+            .Get<IUpdateProduct>()
+            .ExecuteAsync(model));
     }
 }
