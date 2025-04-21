@@ -3,7 +3,7 @@ using AdventureWorks.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace AdventureWorks.Services.Products;
-internal interface IFindProduct : ICommand<int, ProductModel?> { }
+public interface IFindProduct : ICommand<int, ProductModel?> { }
 internal class FindProduct(AdventureWorksDbContext db) : IFindProduct
 {
     public Task<ProductModel?> ExecuteAsync(int productId)

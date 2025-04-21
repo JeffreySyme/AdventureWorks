@@ -3,7 +3,7 @@ using AdventureWorks.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace AdventureWorks.Services.SalesOrders;
-internal interface IFindSalesOrder : ICommand<int, SalesOrderModel?> { }
+public interface IFindSalesOrder : ICommand<int, SalesOrderModel?> { }
 internal class FindSalesOrder(AdventureWorksDbContext db) : IFindSalesOrder
 {
     public Task<SalesOrderModel?> ExecuteAsync(int salesOrderId)

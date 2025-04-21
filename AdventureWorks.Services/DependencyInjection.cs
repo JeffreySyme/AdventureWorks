@@ -25,6 +25,8 @@ public static class DependencyInjection
         services.AddScoped<IAdventureWorksServices, AdventureWorksServices>();
         services.AddScoped<IAdventureWorksValidator, AdventureWorksValidator>();
 
+        services.AddScoped<IAdventureWorksCommands, ICommandProvider>();
+
         configAction.Invoke(new AdventureWorksServicesConfiguration(services));
 
         return services;
