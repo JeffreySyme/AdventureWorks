@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace AdventureWorks.Services;
-internal interface ICommandProvider
+public interface IAdventureWorksCommandProvider
 {
     TCommand Get<TCommand>() where TCommand : ICommand;
 }
-internal class CommandProvider(IServiceProvider serviceProvider) : ICommandProvider
+internal class AdventureWorksCommandProvider(IServiceProvider serviceProvider) : IAdventureWorksCommandProvider
 {
     public TCommand Get<TCommand>() where TCommand : ICommand
     {

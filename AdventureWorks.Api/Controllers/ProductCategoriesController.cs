@@ -1,5 +1,6 @@
 ﻿using AdventureWorks.Models;
 using AdventureWorks.Services;
+using AdventureWorks.Services.ProductCategories;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
@@ -7,18 +8,18 @@ using Microsoft.AspNetCore.OData.Routing.Controllers;
 
 namespace AdventureWorks.Api.Controllers;
 
-public class ProductCategoriesController(IAdventureWorksServices services, IAdventureWorksValidator validator) : ODataController
+public class ProductCategoriesController(IAdventureWorksCommandProvider commandProvider, IAdventureWorksValidator validator) : ODataController
 {
     [EnableQuery]
     public IActionResult Get() 
     {
-        return Ok(services.QueryProductCategories());
+        return Ok(commandProvider.Get<IQueryProductCategories>().Execute());
     }
 
     [EnableQuery]
     public async Task<IActionResult> Get([FromRoute] int key) 
     {
-        var result = await services.FindProductCategoryAsync(key);
+        var result = await commandProvider.Get<IFindProductCategory>().ExecuteAsync(key);
 
         if (result == null)
             return NotFound();
@@ -36,7 +37,9 @@ public class ProductCategoriesController(IAdventureWorksServices services, IAdve
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        var result = await services.CreateProductCategoryAsync(model);
+        var result = await commandProvider
+            .Get<ICreateProductCategory>()
+            .ExecuteAsync(model);
 
         return Created(result);
     }
@@ -53,7 +56,9 @@ public class ProductCategoriesController(IAdventureWorksServices services, IAdve
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        var result = await services.UpdateProductCategoryAsync(model);
+        var result = await commandProvider
+            .Get<IUpdateProductCategory>()
+            .ExecuteAsync(model);
 
         return Updated(result);
     }
